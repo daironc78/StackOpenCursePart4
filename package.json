@@ -1,6 +1,6 @@
 {
   "name": "part3",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/daironc78/StackOpenCursePart3#readme",
   "bugs": {
@@ -15,19 +15,25 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node --inspect index.js",
-    "dev": "nodemon --inspect index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf dist && cd ../StackOpenCursePart2/part2 && npm run build && cp -r dist ../../StackOpenCursePart3",
-    "deploy:full": "npm run build:ui && git add . && git commit -m \"uibuild v$(npm pkg get version | tr -d '\"')\" && git push"
+    "deploy:full": "npm run build:ui && git add . && git commit -m \"uibuild v$(npm pkg get version | tr -d '\"')\" && git push",
+    "lint": "eslint ."
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.9.5"
+    "mongoose": "^8.10.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
     "nodemon": "^3.1.9"
   }
 }
