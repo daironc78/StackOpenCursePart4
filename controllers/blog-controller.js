@@ -7,10 +7,10 @@ const BlogModel = require("../models/blog");
  * @param {Object} response - Express response object.
  * @param {Function} next - Express next function.
  */
-BlogRouter.get('/', (request, response) => {
+BlogRouter.get("/", (request, response) => {
   BlogModel.find({})
     .then(blogs => {
-      response.json(blogs)
+      response.json(blogs);
     });//.catch(error => next(error))
 });
 
@@ -20,12 +20,12 @@ BlogRouter.get('/', (request, response) => {
  * @param {Object} response - Express response object.
  * @param {Function} next - Express next function.
  */
-BlogRouter.post('/', (request, response) => {
+BlogRouter.post("/", (request, response) => {
   const blog = new BlogModel(request.body);
 
   blog.save()
     .then(result => {
-      response.status(201).json(result)
+      response.status(201).json(result);
     });
 });
 
