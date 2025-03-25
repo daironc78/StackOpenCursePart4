@@ -78,3 +78,75 @@ describe("favorite blog", () => {
     assert.deepStrictEqual(result, {});
   });
 });
+
+describe("favorite author blogger", () => {
+  const listWithOneBlog = [
+    {
+      _id: "5a422aa71b54a676234d17f6",
+      title: "Canonical string reduction",
+      author: "Edsger W. Dijkstra",
+      likes: 12,
+      __v: 0
+    },
+    {
+      _id: "5a422aa71b54a676234d17f8",
+      title: "Go To Statement Considered Harmful",
+      author: "Edsger W. Dijkstra",
+      url: "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf",
+      likes: 11,
+      __v: 0
+    },
+    {
+      _id: "5a422aa71b54a676234d17f7",
+      title: "React is the best",
+      author: "Dairon Castro",
+      url: "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf",
+      likes: 4,
+      __v: 0
+    }
+  ];
+
+  test("when list has only one blog, equals the likes of that", () => {
+    const result = listHelper.mostBlogs(listWithOneBlog);
+    assert.deepStrictEqual(result, {
+      author: "Edsger W. Dijkstra",
+      blogs: 2
+    });
+  });
+});
+
+describe("favorite author likes", () => {
+  const listWithOneBlog = [
+    {
+      _id: "5a422aa71b54a676234d17f6",
+      title: "Canonical string reduction",
+      author: "Edsger W. Dijkstra",
+      likes: 12,
+      __v: 0
+    },
+    {
+      _id: "5a422aa71b54a676234d17f8",
+      title: "Go To Statement Considered Harmful",
+      author: "Edsger W. Dijkstra",
+      url: "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf",
+      likes: 11,
+      __v: 0
+    },
+    {
+      _id: "5a422aa71b54a676234d17f7",
+      title: "React is the best",
+      author: "Dairon Castro",
+      url: "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf",
+      likes: 4,
+      __v: 0
+    }
+  ];
+
+  test("when list has only one blog, equals the likes of that", () => {
+    const result = listHelper.mostLikes(listWithOneBlog);
+    assert.deepStrictEqual(result, {
+      author: "Edsger W. Dijkstra",
+      likes: 23
+    });
+  });
+});
